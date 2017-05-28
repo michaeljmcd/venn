@@ -1,4 +1,5 @@
-(ns venn-cli.layout)
+(ns venn-cli.layout
+  (:require [clojure.string :as str]))
 
 (defrecord Grid
   [contents props])
@@ -14,7 +15,7 @@
   (to-svg [x] "<rect />"))
 
 (extend-type Grid SvgTransmuter
-  (to-svg [x] "<g />"))
+  (to-svg [x] (str "<g>" (to-svg (:contents x)) "</g>")))
 
 (extend-type java.lang.String SvgTransmuter
-  (to-svg [x] (.toString x)))
+  (to-svg [x] (str "<text>" x "</text>"))) 
