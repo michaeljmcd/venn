@@ -13,3 +13,9 @@
     (let [a "Test 1 2 3"]
       (is (= "<text>Test 1 2 3</text>" (to-svg a)))
       )))
+
+(deftest basic-rectangle
+  (testing "Generates rect with contents."
+    (let [a (->Rectangle 100 100 "asdf" [])]
+      (is (= "<rect><text>asdf</text></rect>" (to-svg a)))
+      )))

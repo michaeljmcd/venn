@@ -12,7 +12,7 @@
   (to-svg [x] "Returns SVG for this element and all sub-elements."))
 
 (extend-type Rectangle SvgTransmuter
-  (to-svg [x] "<rect />"))
+  (to-svg [x] (str "<rect>" (to-svg (:contents x)) "</rect>")))
 
 (extend-type Grid SvgTransmuter
   (to-svg [x] (str "<g>" (to-svg (:contents x)) "</g>")))
