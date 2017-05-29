@@ -16,6 +16,6 @@
 
 (deftest basic-rectangle
   (testing "Generates rect with contents."
-    (let [a (->Rectangle 100 100 "asdf" [])]
+    (let [a (->Rectangle "asdf" [])]
       (is (= "<rect><text>asdf</text></rect>" (to-svg a)))
       )))

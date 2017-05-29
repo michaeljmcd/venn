@@ -1,11 +1,11 @@
 (ns venn-cli.layout
   (:require [clojure.string :as str]))
 
-(defrecord Grid
-  [contents props])
+(defrecord Grid [contents props])
 
-(defrecord Rectangle
-  [width height contents props])
+(defrecord Connector [from to props])
+
+(defrecord Rectangle [contents props])
 
 (defprotocol SvgTransmuter
   "Defines methods for converting to SVG."
