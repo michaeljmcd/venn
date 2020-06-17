@@ -5,15 +5,17 @@
 (def a
     {:venn/diagram "my-pic"
       :venn/layers [
-         {:grid/layer "asdf" 
-            :venn/depth 1 
-            :grid/rows 20 
-            :grid/columns 5 
-            :venn/contents [ 
-                {:shapes/rectangle "100" :grid/column 1 :grid/row 1 } 
-            ]
+         {:venn/layer "asdf" 
+          :venn/depth 1 
+          :venn/layout :venn/grid
+          :grid/rows 20 
+          :grid/columns 5 
+          :venn/contents [ 
+            {:shapes/rectangle "100" :grid/column 1 :grid/row 1 } 
+          ]
          }
-         {:float/layer "100"
+         {:venn/layer "100"
+          :venn/layout :venn/freeform
           :venn/depth 2
          }
      ]})
@@ -24,12 +26,9 @@
         (map (fn [l]
          (xml/element "g" {}
           (xml/element "title" {}
-           (or (:grid/layer l)
-               (:float/layer l))
-          )))
-         ls)
-     )
-))
+           (:venn/layer l))
+          ))
+         ls))))
 
 (defn venn->svg [diagram]
  (xml/emit-str 
