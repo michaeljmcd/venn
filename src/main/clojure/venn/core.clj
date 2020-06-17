@@ -1,5 +1,6 @@
 (ns venn.core
-  (:require [clojure.data.xml :refer :all :as xml]))
+  (:require [clojure.data.xml :refer :all :as xml])
+  (:gen-class))
 
 (def a 
  {:venn/diagram "my-pic"
@@ -34,3 +35,7 @@
  (xml/emit-str 
   (xml/element "svg" {}
                 (render-layers diagram))))
+
+(defn -main [& args]
+ (print "I am here")
+ (spit "a.svg" (venn->svg a)))
