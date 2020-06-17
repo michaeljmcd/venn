@@ -2,7 +2,7 @@
   (:require [clojure.data.xml :refer :all :as xml])
   (:gen-class))
 
-(defn create-sample []
+(def a
     {:venn/diagram "my-pic"
       :venn/layers [
          {:grid/layer "asdf" 
@@ -38,4 +38,4 @@
 
 (defn -main []
  (print "I am here")
- (spit "a.svg" (venn->svg (create-sample))))
+ (spit "a.svg" (venn->svg a)))
