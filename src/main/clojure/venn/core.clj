@@ -7,16 +7,14 @@
       :venn/layers [
          {:venn/layer "asdf" 
           :venn/depth 1 
-          :venn/layout :venn/grid
-          :grid/rows 20 
-          :grid/columns 5 
-          :venn/contents [ 
-            {:shapes/rectangle "100" :grid/column 1 :grid/row 1 } 
-          ]
-         }
-         {:venn/layer "100"
-          :venn/layout :venn/freeform
-          :venn/depth 2
+          :venn/content  
+            {:layout/grid "asdf" 
+             :layout/columns [ {:layout/width "100%" } ]
+             :layout/rows [ {:layout/width "100%" } ]
+             :contents [
+                {:shapes/rectangle "100" :grid/column 1 :grid/row 1 } 
+             ]
+            }
          }
      ]})
 
