@@ -1,0 +1,11 @@
+{:paths   ["src" "resources"]
+ :deps    {org.clojure/clojure {:mvn/version "1.11.1"}}
+ :aliases {:test     {:extra-paths ["test/main/clojure"]
+                      :extra-deps  {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
+                      :main-opts   ["-m" "kaocha.runner"]}
+            :outdated {:extra-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
+                       :main-opts ["-m" "antq.core"]}
+           :cljfmt {:main-opts ["-m" "cljfmt.main"]
+                    :extra-deps {cljfmt/cljfmt {:mvn/version "0.9.2"}}}
+					 :build {:deps {io.github.clojure/tools.build {:git/tag "v0.9.5"}}
+                   :ns-default build}}}
