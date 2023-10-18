@@ -1,4 +1,3 @@
 (ns venn.core)
 
-(defn venn->svg [diagram]
-)
+(defn venn->svg [diagram])
